@@ -11,7 +11,7 @@ from django.contrib import admin
 from powerdns.models import Domain, Record, Supermaster
 
 class DomainAdmin(admin.ModelAdmin):
-    exclude = ('type','master', 'last_check', 'notified_serial')
+    exclude = ('type','master', 'last_check', 'notified_serial', 'slug')
 admin.site.register(Domain, DomainAdmin)
 
 class RecordAdmin(admin.ModelAdmin):

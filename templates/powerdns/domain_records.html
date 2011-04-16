@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block main-panel %}
+<table>
+    {% for record in domain.records.all %}
+    <tr><td>{{record}}</td></tr>
+    {% endfor %}
+</table>
+{% endblock main-panel %}

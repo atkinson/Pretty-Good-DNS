@@ -31,14 +31,10 @@ DATABASES = {
     }
 }
 
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
-TIME_ZONE = 'America/Chicago'
+LOGIN_URL = '/security/login'
+LOGOUT_URL = '/security/logout'
+LOGIN_REDIRECT_URL = '/'
+TIME_ZONE = 'Australia/Sydney'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -66,8 +62,13 @@ MEDIA_URL = ''
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/admin-media/'
 
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT,'media'),
+)
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '&o%(6mt(01ky!uhej-3fv!(fa(ewe8hl#8pc5^5)s@dm2jw1^t'
 
@@ -84,23 +85,34 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    
+    # Project
+    'security.middleware.DisallowMultipleSessionsMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+     os.path.join(PROJECT_ROOT,'templates'),
 )
 
 INSTALLED_APPS = (
+    # Django
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'powerdns',
+    'django.contrib.staticfiles',
+    
+    # Django Admin
     'django.contrib.admin',
     'django.contrib.admindocs',
+    
+    # Third Party
+    'django_extensions',
+    
+    # project
+    'powerdns',
+    'security',
 )

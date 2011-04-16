@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block main-panel %}
+<table>
+    {% for domain in domain_list %}
+    <tr><td><a href={% url powerdns_domain_records domain.slug %}>{{domain}}</td></tr>
+    {% endfor %}
+</table>
+{% endblock main-panel %}

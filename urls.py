@@ -13,4 +13,14 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    (r'^security/', include('security.urls')),
+    
+    url (r'^$', 'powerdns.views.list_domains', name='powerdns_list_domains'),
+    url (r'^(?P<slug>[-\w]+)/$', 'powerdns.views.domain_records', name='powerdns_domain_records'),
+
+    
+    
 )
+
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+urlpatterns += staticfiles_urlpatterns()
