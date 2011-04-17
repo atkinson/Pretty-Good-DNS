@@ -33,7 +33,7 @@ DATABASES = {
 
 LOGIN_URL = '/security/login'
 LOGOUT_URL = '/security/logout'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/dns/'
 TIME_ZONE = 'Australia/Sydney'
 
 # Language code for this installation. All choices can be found here:
@@ -65,6 +65,8 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/admin-media/'
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT,'static')
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT,'media'),
@@ -111,8 +113,11 @@ INSTALLED_APPS = (
     
     # Third Party
     'django_extensions',
+    'feincms',
+    'feincms.module.page',
     
     # project
     'powerdns',
     'security',
+    'website',
 )

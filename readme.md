@@ -13,4 +13,6 @@ TODO
 8. Whois - Expiration, Registered (WhoisClient)
 9. Email Confirmations - For what?
 10. Authentication - w/ Captcha, what about SMS (later maybe for pro accounts)
-11. 
+11. Clone a domain
+12. Shortcuts to add Gmail, Wordpress.com, Etc
+13. Default MX Record
