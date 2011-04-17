@@ -15,28 +15,29 @@ html { overflow: -moz-scrollbars-vertical;  overflow-y: scroll;}
 
 html, body      { color: #636466; height: 100%; font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif; }
 strong          { font-weight: bold;}
-a  		        { text-decoration: none; color: rgb(42,89,111);}
-a:visited	    { color: rgb(42,89,111); }
-a:hover	        { border-bottom: 1px solid #232;}
+a  		        { text-decoration: none; color: #636466;}
+a:visited	    { color: color: #636466; }
+a:hover	        { border-bottom: 1px dashed #d0ddd0;}
 a.button        { display: block; text-align: center;}
-button          { padding: 3px; }
-button:hover    { cursor: pointer;}
-input.submit    { cursor: pointer;}
 
-h2              { font-size: 2em; line-height: 2em;}
+button          { font-size: inherit;}
+button:hover    { cursor: pointer;}
+input.button    { cursor: pointer;}
+
+h1              { font-size: 2em;}
+h2              { font-size: 1.67em; }
 h3              { font-size: 1.3em; line-height: 2em;}
 
 p               { line-height: 2em;}
 em              { font-style: italic;}
 
-table               { width: 100%; margin: 0px; background-color: inherit !important;}
-table tbody tr      { background-color: #eeeeee;}
-table tbody tr:hover{ background-color: #C9C9C9; }
-table tbody tr.no-hover:hover {background-color: #eeeeee;}
-table th            { background: #aabbbb; color: #000; font-weight: bold;}
+table               { width: 100%; margin: 0px; }
 
-td, th              { vertical-align: top; padding: 4px; border-top: 1px solid white; line-height: 1.3em;}
-tfoot td, tfoot th  { background: #aabbbb; color: #232; font-weight: bold; text-align: center; min-height: 10px;}
+table th            { color: #000; font-weight: bold;}
+
+td, th              { vertical-align: top; padding: 4px; line-height: 1.3em;}
+td                  { border-top: 1px solid white; }
+tfoot td, tfoot th  { color: #232; font-weight: bold; text-align: center; min-height: 10px;}
 
 table.table-form    { width: 100%; margin: 12px 0px 0px;}
 table.user-profile  { width: 480px;}
@@ -45,7 +46,18 @@ table.user-profile  { width: 480px;}
     Background
 */
 
-body,html            { background: #f3f3f3;}
+body,html           { background: #f8fcda;}
+table               { background-color: inherit !important }
+table th            { background: #dee5d2; }
+.button             { background-color: #dee5d2; padding: 4px 8px;}
+table tbody td      { background-color: #edeed5;}
+tfoot td, tfoot th  { background: #dee5d2;}
+/* table tbody tr:hover{ background-color: #eeeeee; }
+table tbody tr.no-hover:hover {background-color: #eeeeee;}*/
+
+/*
+http://fox:8000/color-combination/week-1552-heavy-hearts-like-heavy-clouds-in-the-sky-are-best-relieved-by-the-letting-of-a-little-water
+*/
 
 /*  ----------------------------------
     Handy helpers
@@ -59,10 +71,24 @@ body,html            { background: #f3f3f3;}
 .errorlist      { color: red; }
 .error          { color: red; }
 .success        { color: green; }
+.highlight      { border-color: orange;}
 
 .right  { float: right; }
 .left   { float: left;  margin-left: 8px;}
 .hidden { visibility: hidden;}
+
+.rounded           { -moz-border-radius: 15px; border-radius: 15px;}
+.rounded-top       { border-top-left-radius: 15px;  -moz-border-radius-topleft: 15px;
+                     border-top-right-radius: 15px; -moz-border-radius-topright: 15px; }
+.rounded-bottom    { border-bottom-right-radius: 15px; -moz-border-radius-bottomright: 15px;
+                     border-bottom-left-radius: 15px;  -moz-border-radius-bottomleft: 15px;}
+
+.rounded-top-left  { border-top-left-radius: 15px;  -moz-border-radius-topleft: 15px; }
+.rounded-top-right { border-top-right-radius: 15px; -moz-border-radius-topright: 15px; }
+
+.rounded-bottom-left { border-bottom-right-radius: 15px; -moz-border-radius-bottomright: 15px; }
+.rounded-bottom-right{ border-bottom-left-radius: 15px;  -moz-border-radius-bottomleft: 15px; }
+
 
 .2cols      { margin-top: 12px;}
 .checked    { background-color: #fbee99;}
@@ -75,13 +101,12 @@ body,html            { background: #f3f3f3;}
 */
 fieldset        {border:1px solid #aaa; padding: 6px; margin: 6px;}
 legend          {margin-left: 6px; padding: 3px; font-weight: bold; font-size: 16px;}
-ul.fieldset     {margin-top: 0px;}
-ul.fieldset input, ul.fieldset textarea { width: 200px;}
-
-input, textarea { border-radius:4px; border:1px solid #aaa; font-size:22px; 
+input, textarea, button { border-radius:4px; border:1px solid #aaa; 
                   font-family:Verdana, Arial, freesans, sans-serif; padding:3px;}
 input.disabled  { border: none; background: none;}
-input:text      { width: 250px;}
+
+ul.fieldset     {margin-top: 0px;}
+ul.fieldset input, ul.fieldset textarea { width: 200px;}
 
 .help_text        { color: white; }
 .help_text_active { color: green;}
@@ -107,24 +132,11 @@ ol.decimal li       { list-style:decimal inside;}
 /*  -------------------------------------------------------------------
     Login, Profile, etc
 */
-.very-top          { padding: 0px 8px; }
+.very-top          { padding: 12px 8px 0px 8px; }
 .very-top a        { font-size: 16px; padding: 3px 3px 2px 3px;}
-.very-top a:visited{  } 
-.very-top a:hover  { border: none;}
 .very-top li       { display: inline; margin-left:3px;}
 
 .very-top #account-nav { float: right;}
-
-/*  -------------------------------------------------------------------
-    Topbar
-*/
-#topbar         { margin: 0px; padding: 0px 16px; clear: both;}
-#topbar li      { display: inline;}
-#topbar a       { color: #223322; font-size: 16px; font-weight: bold; padding: 0px 3px 2px 3px;}
-#topbar a:hover { background: #e2e2dd; color: black; border: none;}
-#topbar a:visited{ color: #223322; }
-
-#topbar a.active{ background: #e2e2dd; color: black;}
 
 
 /*  ----------------------------------

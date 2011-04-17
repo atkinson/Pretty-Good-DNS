@@ -1,9 +1,65 @@
 {% extends "base.html" %}
 
+
+{% block head %}
+
+{{ form.media }}
+    <script type="text/javascript">
+    new_form = function(elt){
+        var row = $(elt).closest('tr');
+        row.hide();
+        row = row.next('tr').show();
+    }
+
+    $(function() {
+        if (window.XMLHttpRequest) {
+            // IE 7+, Firefox, Webkit, Opera
+            $.each($("input[name$='name']"), function(i,elt){
+                if ($(elt).val() == '') {
+                    var _row= $(elt).closest('tr');
+                    var colspan = _row.children('td').length;
+                    _row.hide();
+                    _row.before('<tr><td colspan="'+ colspan +'"><button class="float-right button" \
+                            onClick="window.new_form(this); return false;">Add Record</button></tr>');
+                }
+            })
+        } else {
+            console.log('IE6... meh')
+        }
+    })
+    </script>
+{% endblock head%}
+
 {% block main-panel %}
-<table>
-    {% for record in domain.records.all %}
-    <tr><td>{{record}}</td></tr>
-    {% endfor %}
-</table>
+<form method="POST" id="profile-form" action='{% url powerdns_domain_records domain.slug %}'>
+
+	<h3><a href="{% url powerdns_list_domains %}">Domains</a> > {{ domain }}</h3>
+    <table> 
+        <tr><th class="rounded-top-left">Name</th><th>Type</th><th>Content</th><th>TTL</th><th>Priority</th><th class="rounded-top-right">Delete</th></tr>
+        {% for record in records_formset.forms %}
+            <tr class="formset-form">
+                <td>{{ record.non_field_errors }}{{ record.name.errors }}{{ record.name }} {{ record.id }}</td>
+                <td>{{ record.type.errors }}{{ record.type }}</td>
+                <td>{{ record.content.errors }}{{ record.content }}</td>
+                <td>{{ record.ttl.errors }}{{ record.ttl }}</td>
+                <td>{{ record.prio.errors }}{{ record.prio }}</td>
+                <td>{{ record.DELETE }} {{ records_formset.management_form }}</td>
+            </tr>
+        {% endfor %}
+        {% if form.non_field_errors %}
+    	    <tr><td colspan="6"><div class="errorlist"> {{ form.non_field_errors }}</div></td></tr>
+    	{% endif %}
+    	{% if records_formset.non_form_errors %}
+        <tr><td colspan="6">{{ records_formset.non_form_errors }}</td></tr>
+        {% endif %}
+        <tfoot><tr><td colspan="6" class="rounded-bottom"><img src="{{ STATIC_URL }}img/1x1px.gif" /></td></tr></tfoot>
+    </table>
+	        {% for hidden in form.hidden_fields %} {{ hidden }} {% endfor %} {% csrf_token %}
+    <br /> 
+    <div class="right">
+        <button class="button" onClick="window.location='{{ cancel }}'; return false;">Cancel</button>
+        <input type="submit" id="submit" class="button" value="Save Changes">
+    </div>
+</form>
+
 {% endblock main-panel %}

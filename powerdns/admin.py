@@ -10,14 +10,17 @@
 from django.contrib import admin
 from powerdns.models import Domain, Record, Supermaster
 
+class RecordInline(admin.TabularInline):
+    model = Record
+    exclude = ('change_date',)
+
 class DomainAdmin(admin.ModelAdmin):
     exclude = ('type','master', 'last_check', 'notified_serial', 'slug')
+    inlines = (
+        RecordInline,
+    )
 admin.site.register(Domain, DomainAdmin)
 
-class RecordAdmin(admin.ModelAdmin):
-    exclude = ('change_date',)
-    pass
-admin.site.register(Record, RecordAdmin)
 
 class SupermasterAdmin(admin.ModelAdmin):
     pass

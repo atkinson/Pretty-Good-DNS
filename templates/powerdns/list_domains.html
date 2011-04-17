@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 
 {% block main-panel %}
+<h3><a href="{% url powerdns_list_domains %}">Domain Names</a></h3>
 <table>
+    <tr><th class="rounded-top"><img src="{{ STATIC_URL }}img/1x1px.gif" /></th></tr>
     {% for domain in domain_list %}
     <tr><td><a href={% url powerdns_domain_records domain.slug %}>{{domain}}</td></tr>
     {% endfor %}
+    <tr><th class="rounded-bottom"><img src="{{ STATIC_URL }}img/1x1px.gif" /></th></tr>
 </table>
 {% endblock main-panel %}

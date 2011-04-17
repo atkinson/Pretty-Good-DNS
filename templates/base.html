@@ -16,22 +16,20 @@
     <link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.ico">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script> 
-    <script type="text/javascript" src="/media/js/jquery.messages.js"></script> 
+    <script type="text/javascript" src="{{ STATIC_URL }}lib/js/jquery.messages.js"></script> 
     
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">	
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css">
     
 	<script type="text/javascript"> 
 	$(function() {
-        $('#main-section tr:even').addClass('even');
-        $("button, input:submit, a.button .button").button();
         $('input').bind({
             'keyup':function(){
                 $(this).change();
             },
             'change':function(){
-                $("input[type=submit]").addClass('ui-state-highlight');
-                $(this).css('border','2px outset #ffa500');
+                $("input[type=submit]").addClass('highlight');
+                $(this).css('border','1px solid #ffa500');
             }
         });
         
@@ -55,21 +53,16 @@
             <div id="account-nav"> 
                 <ul>
                     {% if user.is_superuser %}
-                        <li><a href="/admin/">Admin</a> |</li> 
+                        <li><a href="/admin/">Admin</a> |</li>
                     {% endif %}
                     <li><a href="#">Account</a> |</li>
-                    <li><a href="#">Logout</a></li> 
+                    <li><a href="{% url security_logout %}">Logout</a></li> 
                 </ul> 
             </div>
             {% endif %}
             <div> 
-                <h1 id="title" onClick="window.location='/';return false;" style="cursor:pointer;"><span style="color:#f05528;">Ice</span>DNS</h1>
+                <h1 id="title" onClick="window.location='/';return false;" style="cursor:pointer;"><span style="color:#e6cabb;">Ice</span>DNS</h1>
             </div>
-        </div>
-    </div>
-
-    <div id="topbar">
-        <div class="width-limit"> 
         </div>
     </div>
 
@@ -81,7 +74,7 @@
         {% endblock main-panel %}
         </div> 
     <div class="footer"> 
-        <p>&copy; IceDNS&trade; 2011</p> 
+        <p>&copy; IceDNS 2011</p> 
     </div> 
 </div> 
  
