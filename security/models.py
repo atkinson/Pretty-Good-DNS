@@ -15,3 +15,10 @@ class AuthenticatedSession(models.Model):
     datetime = models.DateTimeField(auto_now_add=True)
     ip_address = models.IPAddressField(null=True)
     session_key = models.CharField(max_length=40)
+
+class FailedLoginAttempt(models.Model):
+    """ Record of a failed login attempt. User may be unknown """
+    user = models.ForeignKey('auth.User', related_name='failed_login_attempt', null=True)
+    username = models.CharField(max_length=30)
+    datetime = models.DateTimeField(auto_now_add=True)
+    ip_address = models.IPAddressField(null=True)

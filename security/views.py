@@ -25,10 +25,12 @@ def login(request, template_name='security/login.html',
     response = django_login(request, template_name=template_name,
                             redirect_field_name=redirect_field_name)
     if request.method == 'POST':
-        if response.status_code == 403:
-            print "vobitten"
-        else:
-            print "granted"
+        login_unsuccessful = (
+            response and
+            not response.has_header('location') and
+            response.status_code != 302
+        )
+        print login_unsuccessful
     return response
     
  

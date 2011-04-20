@@ -74,6 +74,11 @@ STATICFILES_DIRS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '&o%(6mt(01ky!uhej-3fv!(fa(ewe8hl#8pc5^5)s@dm2jw1^t'
 
+
+PERMIT_FAILED_LOGIN_ATTEMPTS = 3
+FAILED_LOGIN_TIMEOUT = 10 #minutes
+
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
