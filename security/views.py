@@ -14,6 +14,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import login as django_login
 
 from security.decorators import anonymous_required
+from security.models import FailedLoginAttempt
 
 @csrf_protect
 @never_cache
@@ -30,7 +31,17 @@ def login(request, template_name='security/login.html',
             not response.has_header('location') and
             response.status_code != 302
         )
-        print login_unsuccessful
+
+        if login_unsuccessful:
+            try:
+                user = User.objects.get(username=request.POST.get('username'))
+            except:
+                user = None
+            fla = FailedLoginAttempt.objects.create(user = user,
+                                     username = request.POST.get('username'),
+                                     ip_address = request.META.get('REMOTE_ADDR'))
+            fla.save()
+ 
     return response
     
  
