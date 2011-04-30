@@ -1,0 +1,154 @@
+/*
+ ____  _      _          _   _   _     _                       
+|  _ \(_) ___| |__      / \ | |_| | __(_)_ __  ___  ___  _ __  
+| |_) | |/ __| '_ \    / _ \| __| |/ /| | '_ \/ __|/ _ \| '_ \ 
+|  _ <| | (__| | | |  / ___ \ |_|   < | | | | \__ \ (_) | | | |
+|_| \_\_|\___|_| |_| /_/   \_\__|_|\_\|_|_| |_|___/\___/|_| |_|
+
+Copyright 2011 (atkinsonr@gmail.com / @tkinson)             */
+
+/*  -------------------------------------------------------------------
+    Elements
+*/
+
+html { overflow: -moz-scrollbars-vertical;  overflow-y: scroll;}
+
+html, body      { color: #636466; height: 100%; font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif; }
+strong          { font-weight: bold;}
+a  		        { text-decoration: none; color: #636466;}
+a:visited	    { color: color: #636466; }
+a:hover	        { border-bottom: 1px dashed #d0ddd0;}
+a.button        { display: block; text-align: center;}
+
+button          { font-size: inherit;}
+button:hover    { cursor: pointer;}
+input.button    { cursor: pointer;}
+
+h1              { font-size: 2em;}
+h2              { font-size: 1.67em; }
+h3              { font-size: 1.3em; line-height: 2em;}
+
+p               { line-height: 2em;}
+em              { font-style: italic;}
+
+table               { width: 100%; margin: 0px; }
+
+table th            { color: #000; font-weight: bold;}
+
+td, th              { vertical-align: top; padding: 4px; line-height: 1.3em;}
+td                  { border-top: 1px solid white; }
+tfoot td, tfoot th  { color: #232; font-weight: bold; text-align: center; min-height: 10px;}
+
+table.table-form    { width: 100%; margin: 12px 0px 0px;}
+table.user-profile  { width: 480px;}
+
+/*  ----------------------------------
+    Background
+*/
+
+body,html           { background: #f8fcda;}
+table               { background-color: inherit !important }
+table th            { background: #dee5d2; }
+.button             { background-color: #dee5d2; padding: 4px 8px;}
+table tbody td      { background-color: #edeed5;}
+tfoot td, tfoot th  { background: #dee5d2;}
+/* table tbody tr:hover{ background-color: #eeeeee; }
+table tbody tr.no-hover:hover {background-color: #eeeeee;}*/
+
+/*
+http://fox:8000/color-combination/week-1552-heavy-hearts-like-heavy-clouds-in-the-sky-are-best-relieved-by-the-letting-of-a-little-water
+*/
+
+/*  ----------------------------------
+    Handy helpers
+*/
+.border         { border: 1px solid #aaa; }
+.float-left     { float: left; }
+.float-right    { float: right; }
+.strong         { font-weight: bold; }
+.hidden         { display: none; }
+.over-limit     { color: red !important; }
+.errorlist      { color: red; }
+.error          { color: red; }
+.success        { color: green; }
+.highlight      { border-color: orange;}
+
+.right  { float: right; }
+.left   { float: left;  margin-left: 8px;}
+.hidden { visibility: hidden;}
+
+.rounded           { -moz-border-radius: 15px; border-radius: 15px;}
+.rounded-top       { border-top-left-radius: 15px;  -moz-border-radius-topleft: 15px;
+                     border-top-right-radius: 15px; -moz-border-radius-topright: 15px; }
+.rounded-bottom    { border-bottom-right-radius: 15px; -moz-border-radius-bottomright: 15px;
+                     border-bottom-left-radius: 15px;  -moz-border-radius-bottomleft: 15px;}
+
+.rounded-top-left  { border-top-left-radius: 15px;  -moz-border-radius-topleft: 15px; }
+.rounded-top-right { border-top-right-radius: 15px; -moz-border-radius-topright: 15px; }
+
+.rounded-bottom-left { border-bottom-right-radius: 15px; -moz-border-radius-bottomright: 15px; }
+.rounded-bottom-right{ border-bottom-left-radius: 15px;  -moz-border-radius-bottomleft: 15px; }
+
+
+.2cols      { margin-top: 12px;}
+.checked    { background-color: #fbee99;}
+.tip        { vertical-align: super; font-size: 9px; cursor: pointer; color: yellow; margin-left: 2px;}
+.key-gen    { margin-left: 8px;}
+
+
+/*  ----------------------------------
+    Forms and Fieldsets
+*/
+fieldset        {border:1px solid #aaa; padding: 6px; margin: 6px;}
+legend          {margin-left: 6px; padding: 3px; font-weight: bold; font-size: 16px;}
+input, textarea, button { border-radius:4px; border:1px solid #aaa; 
+                  font-family:Verdana, Arial, freesans, sans-serif; padding:3px;}
+input.disabled  { border: none; background: none;}
+
+ul.fieldset     {margin-top: 0px;}
+ul.fieldset input, ul.fieldset textarea { width: 200px;}
+
+.help_text        { color: white; }
+.help_text_active { color: green;}
+
+
+/*  ----------------------------------
+     Header and Dimensions
+*/
+
+#main-panel         { border: none; margin-top: 16px;}
+#admin-nav          { margin: 32px 0px 8px 0px;}
+
+h1#title            { font-family: 'Cantarell', arial, serif; padding:8px 8px 8px 0px; font-size:28px;}
+div#outer-wrap      { width: 900px; min-height: 340px; margin:0px auto; position: relative;}
+
+.width-limit        { width:900px; margin-left: auto; margin-right: auto;}
+/*  -------------------------------------------------------------------
+    Lists
+*/
+ol.decimal li       { list-style:decimal inside;}
+
+
+/*  -------------------------------------------------------------------
+    Login, Profile, etc
+*/
+.very-top          { padding: 12px 8px 0px 8px; }
+.very-top a        { font-size: 16px; padding: 3px 3px 2px 3px;}
+.very-top li       { display: inline; margin-left:3px;}
+
+.very-top #account-nav { float: right;}
+
+
+/*  ----------------------------------
+    Footer
+*/
+
+div.footer  {max-width: 900px; text-align:center; padding: 24px 0px; margin:0px; clear:both;}
+
+
+/*  -------------------------------------------------------------------
+    Tabs nav
+*/
+.tabs_nav               { border-bottom:1px solid #bababa; margin: 10px 30px 0px 30px; padding-bottom: 4px; }
+.tabs_nav li            { border:1px solid #bababa; background-color:#f0f0f0; padding: 4px 12px; display: inline;}
+.tabs_nav li.current-tab{ padding-bottom: 5px; background-color: white; border-bottom: none;}

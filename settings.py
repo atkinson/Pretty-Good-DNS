@@ -15,6 +15,12 @@ PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+RECAPTCHA_PUBKEY = '6Lf-8MMSAAAAADA8_5Z4A95kfIzX4KPcc-CxVzQ6'
+RECAPTCHA_PRIVKEY = '6Lf-8MMSAAAAABXC1CaI66DaHwsvKDGg9I0EWN6x'
+
+LOGIN_RETRIES_ALLOWED = 3
+LOGIN_RETRIES_TIMEOUT = 3*60
+
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
 )
@@ -73,11 +79,6 @@ STATICFILES_DIRS = (
 )
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '&o%(6mt(01ky!uhej-3fv!(fa(ewe8hl#8pc5^5)s@dm2jw1^t'
-
-
-PERMIT_FAILED_LOGIN_ATTEMPTS = 3
-FAILED_LOGIN_TIMEOUT = 10 #minutes
-
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
