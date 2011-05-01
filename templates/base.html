@@ -70,7 +70,15 @@
     <div id="main-section" class="ui-widget">
         <div id="main-panel" class="ui-widget-content"> 
         {% block main-panel %}
-            <p>Hello world</p>
+        
+            <div class="content_title">
+              {% block content_title %}{% endblock %}
+            </div>
+        
+            <div class="content">
+              {% block content %}{% endblock %}
+            </div>
+        
         {% endblock main-panel %}
         </div> 
     <div class="footer"> 
@@ -82,3 +90,4 @@
 
 </body> 
 </html>
+

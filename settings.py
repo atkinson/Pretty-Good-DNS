@@ -121,6 +121,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'feincms',
     'feincms.module.page',
+    'registration',
     
     # project
     'powerdns',
